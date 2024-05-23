@@ -1,9 +1,9 @@
 public virtual class DmlService {
     public virtual SObject doInsert(SObject record) {
-        return doInsert(new List<SObject>{ record });
+        return doInsert(new List<SObject>{ record })[0];
     }
 
-    public virtual SObject doInsert(List<SObject> records) {
+    public virtual List<SObject> doInsert(List<SObject> records) {
         Database.insert(records, true, AccessLevel.USER_MODE);
         return records;
     }
